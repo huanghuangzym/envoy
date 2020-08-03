@@ -51,6 +51,7 @@ inline std::string toString(WasmResult r) {
     _CASE(InternalFailure);
     _CASE(BrokenConnection);
   }
+  return "";
 }
 #undef _CASE
 

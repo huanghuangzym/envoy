@@ -808,6 +808,7 @@ int ServerConnectionImpl::onHeadersComplete() {
     ASSERT(active_request.request_url_.empty());
 
     headers->setMethod(method_string);
+    headers->setScheme("http");
 
     // Make sure the host is valid.
     auto details = HeaderUtility::requestHeadersValid(*headers);

@@ -8,6 +8,8 @@ def envoy_copts(repository, test = False):
         "-Wall",
         "-Wextra",
         "-Werror",
+        "-Wno-return-type",
+        "-Wno-parentheses",
         "-Wnon-virtual-dtor",
         "-Woverloaded-virtual",
         "-Wold-style-cast",

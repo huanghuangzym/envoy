@@ -249,7 +249,8 @@ void HttpTracerUtility::setCommonTags(Span& span, const Http::ResponseHeaderMap*
     annotateVerbose(span, stream_info);
   }
 
-  if (!stream_info.responseCode() || Http::CodeUtility::is5xx(stream_info.responseCode().value())) {
+  if (!stream_info.responseCode() || Http::CodeUtility::is5xx(stream_info.responseCode().value()) ||
+    Http::CodeUtility::is4xx(stream_info.responseCode().value())) {
     span.setTag(Tracing::Tags::get().Error, Tracing::Tags::get().True);
   }
 }

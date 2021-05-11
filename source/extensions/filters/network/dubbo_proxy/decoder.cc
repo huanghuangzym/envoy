@@ -70,8 +70,8 @@ DecoderStateMachine::DecoderStatus DecoderStateMachine::handleState(Buffer::Inst
 
 ProtocolState DecoderStateMachine::run(Buffer::Instance& buffer) {
   while (state_ != ProtocolState::Done) {
-    ENVOY_LOG(trace, "dubbo decoder: state {}, {} bytes available",
-              ProtocolStateNameValues::name(state_), buffer.length());
+    ENVOY_LOG(trace, "dubbo decoder: state {}, {} bytes available  data is {}",
+              ProtocolStateNameValues::name(state_), buffer.length(),buffer.toString());
 
     DecoderStatus s = handleState(buffer);
     if (s.next_state_ == ProtocolState::WaitForData) {
@@ -91,7 +91,7 @@ DecoderBase::DecoderBase(Protocol& protocol) : protocol_(protocol) {}
 DecoderBase::~DecoderBase() { complete(); }
 
 FilterStatus DecoderBase::onData(Buffer::Instance& data, bool& buffer_underflow) {
-  ENVOY_LOG(debug, "dubbo decoder: {} bytes available", data.length());
+  ENVOY_LOG(debug, "dubbo decoder: {} bytes available  {}", data.length(),data.toString());
   buffer_underflow = false;
 
   if (!decode_started_) {

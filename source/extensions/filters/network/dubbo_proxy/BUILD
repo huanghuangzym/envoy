@@ -33,6 +33,7 @@ envoy_cc_library(
 envoy_cc_library(
     name = "protocol_interface",
     hdrs = ["protocol.h"],
+    visibility = ["//visibility:public"],
     deps = [
         ":buffer_helper_lib",
         ":message_lib",
@@ -122,6 +123,7 @@ envoy_cc_extension(
         "//source/extensions/filters/network/dubbo_proxy/router:config",
         "//source/extensions/filters/network/dubbo_proxy/router:route_matcher",
         "//source/extensions/filters/network/dubbo_proxy/router:router_lib",
+        "//source/extensions/filters/network/dubbo_proxy/testhl:config",
         "@envoy_api//envoy/extensions/filters/network/dubbo_proxy/v3:pkg_cc_proto",
     ],
 )
@@ -130,6 +132,7 @@ envoy_cc_library(
     name = "metadata_lib",
     hdrs = ["metadata.h"],
     external_deps = ["abseil_optional"],
+    visibility = ["//visibility:public"],
     deps = [
         ":message_lib",
         "//source/common/buffer:buffer_lib",
@@ -230,6 +233,7 @@ envoy_cc_library(
         "//source/common/stream_info:stream_info_lib",
         "//source/extensions/filters/network/dubbo_proxy/filters:filter_interface",
         "//source/extensions/filters/network/dubbo_proxy/router:router_interface",
+        "//source/extensions/filters/network/dubbo_proxy/testhl:router_interface",
         "@envoy_api//envoy/extensions/filters/network/dubbo_proxy/v3:pkg_cc_proto",
     ],
 )

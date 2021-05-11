@@ -8,6 +8,7 @@ BROWSE
 .classpath
 .clwb/
 /ci/bazel-*
+envoy-bazel-cmakelists
 compile_commands.json
 cscope.*
 .deps
@@ -32,7 +33,6 @@ clang-tidy-fixes.yaml
 .gdb_history
 clang.bazelrc
 user.bazelrc
-CMakeLists.txt
 cmake-build-debug
 /linux
 bazel.output.txt

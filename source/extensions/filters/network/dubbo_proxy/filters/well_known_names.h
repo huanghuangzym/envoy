@@ -18,6 +18,9 @@ class DubboFilterNameValues {
 public:
   // Router filter
   const std::string ROUTER = "envoy.filters.dubbo.router";
+
+  // Router filter
+  const std::string TESTHL = "envoy.filters.dubbo.testhl";
 };
 
 using DubboFilterNames = ConstSingleton<DubboFilterNameValues>;
